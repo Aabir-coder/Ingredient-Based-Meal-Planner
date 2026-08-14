@@ -1,0 +1,58 @@
+# Synopsis: Ingredient-Based Meal Planner
+
+## 1. Introduction
+
+The **Ingredient-Based Meal Planner** is a frontend web application designed to help users decide what meals they can prepare based on the ingredients available in their kitchen. The application uses a predefined collection of recipes and allows users to select ingredients that they do not have. Based on these selections, the system filters out recipes containing unavailable ingredients and displays suitable recipes.
+
+## 2. Problem Statement
+
+People often have several ingredients at home but struggle to decide what they can cook with them. Existing recipe platforms usually require users to search for recipes manually or enter the ingredients they have. This can be time-consuming and may result in unnecessary grocery purchases.
+
+The proposed system solves this problem by allowing users to mark unavailable ingredients and automatically finding recipes that do not require them.
+
+## 3. Objectives
+
+* To provide an easy-to-use recipe discovery interface.
+* To help users find meals based on their available ingredients.
+* To automatically filter recipes containing unavailable ingredients.
+* To simplify weekly meal planning.
+* To reduce unnecessary grocery purchases and food waste.
+
+## 4. Proposed System
+
+The application will contain a predefined recipe database where every recipe is associated with a list of ingredients. Users can select ingredients they do not have, such as onion, tomato, or ginger. The application will then compare the selected unavailable ingredients with the ingredients required by each recipe.
+
+Recipes containing one or more unavailable ingredients will be removed from the results, while compatible recipes will remain visible. Users can then view the recipe details and add suitable meals to their meal planner.
+
+## 5. Key Features
+
+* Predefined recipe collection
+* Ingredient availability selection
+* Automatic recipe filtering
+* Recipe details and cooking instructions
+* Search and browse recipes
+* Weekly meal planner
+* Favourite recipes
+* Responsive user interface
+* LocalStorage for saving user preferences
+
+## 6. Technology Used
+
+The project will be developed as a frontend-only application using:
+
+* **HTML5** for webpage structure
+* **CSS3** for styling and responsive design
+* **JavaScript** for recipe filtering and user interactions
+* **LocalStorage** for storing selected preferences and saved recipes
+
+## 7. Scope
+
+The initial version will focus on the frontend implementation and use a predefined recipe dataset. Future versions can integrate a backend, online recipe APIs, user accounts, nutritional information, AI-based recommendations, and automatic shopping-list generation.
+
+## 8. Expected Outcome
+
+The final application will provide users with a simple way to discover meals they can actually prepare with the ingredients they have. By automatically eliminating unsuitable recipes, the system will make meal planning faster, more convenient, and more practical.
+
+## 9. Conclusion
+
+The **Ingredient-Based Meal Planner** aims to turn everyday meal planning into a simple ingredient-based process. Instead of wondering what to cook or buying unnecessary ingredients, users can identify what they are missing and immediately see suitable recipes.
