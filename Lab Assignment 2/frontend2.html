@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontend Lab Assignment 2</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            color: #222;
+        }
+
+        header {
+            background: #263238;
+            color: white;
+            padding: 15px;
+        }
+
+        .top {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .buttons button {
+            padding: 8px 12px;
+            margin: 2px;
+            border: 1px solid #90a4ae;
+            background: #455a64;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover,
+        .buttons .selected {
+            background: #0288d1;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1000px;
+            margin: 25px auto;
+        }
+
+        .page {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        .page.show {
+            display: block;
+        }
+
+        h2 {
+            margin-top: 0;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 9px;
+        }
+
+        th {
+            background: #37474f;
+            color: white;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .total {
+            font-weight: bold;
+            background: #eeeeee;
+        }
+
+        .pass {
+            color: green;
+            font-weight: bold;
+        }
+
+        .resume h3 {
+            color: #1565c0;
+            border-bottom: 1px solid #bbb;
+            padding-bottom: 5px;
+            margin-top: 22px;
+        }
+
+        .resume p,
+        .resume li {
+            line-height: 1.6;
+        }
+
+        .menu {
+            max-width: 650px;
+            margin: auto;
+            font-family: Georgia, serif;
+        }
+
+        .menu h1,
+        .menu > p {
+            text-align: center;
+        }
+
+        .menu h1 {
+            color: #6d3212;
+        }
+
+        .menu h3 {
+            color: #a44416;
+            border-bottom: 1px dashed #c87832;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        .menu li {
+            margin: 10px 0;
+        }
+
+        .price {
+            float: right;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .form {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .field {
+            margin-bottom: 17px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 9px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+
+        .choice {
+            display: inline;
+            font-weight: normal;
+            margin-right: 15px;
+        }
+
+        .submit,
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit {
+            background: #0288d1;
+        }
+
+        .login {
+            max-width: 360px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .login .field {
+            text-align: left;
+        }
+
+        .login-button {
+            background: #2e7d32;
+        }
+
+        .links {
+            margin-top: 15px;
+        }
+
+        a {
+            color: #0288d1;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="top">
+        <div class="title">Frontend Lab Assignment 2</div>
+
+        <div class="buttons">
+            <button class="selected" onclick="openPage(1)">Marksheet</button>
+            <button onclick="openPage(2)">Resume</button>
+            <button onclick="openPage(3)">Menu</button>
+            <button onclick="openPage(4)">Registration</button>
+            <button onclick="openPage(5)">Login</button>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <!-- Task 1 -->
+    <section class="page show" id="page1">
+        <h2>Task 1 - Student Marksheet</h2>
+
+        <table>
+            <caption><h3>STATEMENT OF MARKS (SEMESTER I)</h3></caption>
+
+            <tr>
+                <td colspan="3" class="left"><b>Student Name:</b> Aabir Das</td>
+                <td colspan="2" class="left"><b>Roll Number:</b> 2025-CSE-AI-ML</td>
+            </tr>
+
+            <tr>
+                <td colspan="3" class="left"><b>Degree:</b> B.Tech CSE - AI & ML</td>
+                <td colspan="2" class="left"><b>Academic Year:</b> 2025-2026</td>
+            </tr>
+
+            <tr>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+                <th>Max Marks</th>
+                <th>Marks Obtained</th>
+                <th>Grade</th>
+            </tr>
+
+            <tr>
+                <td>CS401</td>
+                <td>Operating Systems</td>
+                <td>100</td>
+                <td>88</td>
+                <td>A</td>
+            </tr>
+
+            <tr>
+                <td>CS402</td>
+                <td>Database Management Systems</td>
+                <td>100</td>
+                <td>91</td>
+                <td>A+</td>
+            </tr>
+
+            <tr>
+                <td>CS403</td>
+                <td>Frontend Web Technologies</td>
+                <td>100</td>
+                <td>96</td>
+                <td>A+</td>
+            </tr>
+
+            <tr>
+                <td>CS404</td>
+                <td>Computer Networks</td>
+                <td>100</td>
+                <td>84</td>
+                <td>A</td>
+            </tr>
+
+            <tr>
+                <td>CS405</td>
+                <td>Design & Analysis of Algorithms</td>
+                <td>100</td>
+                <td>79</td>
+                <td>B+</td>
+            </tr>
+
+            <tr class="total">
+                <td colspan="2">Total Marks</td>
+                <td>500</td>
+                <td>438</td>
+                <td class="pass">PASS</td>
+            </tr>
+
+            <tr class="total">
+                <td colspan="3">Percentage: 87.6%</td>
+                <td colspan="2">Result: First Class with Distinction</td>
+            </tr>
+        </table>
+    </section>
+
+
+    <!-- Task 2 -->
+    <section class="page" id="page2">
+        <h2>Task 2 - Resume</h2>
+
+        <div class="resume">
+            <h1>Aabir Das</h1>
+            <p>Email: aabirdas@example.com | Phone: +91 XXXXX XXXXX | Greater Noida, India</p>
+
+            <h3>Career Objective</h3>
+            <p>
+                Aspiring AI/ML engineer and quantitative finance enthusiast building skills in Python, Java, machine learning, data science and software development.
+            </p>
+
+            <h3>Education</h3>
+
+            <table>
+                <tr>
+                    <th>Qualification</th>
+                    <th>Institution</th>
+                    <th>Year</th>
+                    <th>Score</th>
+                </tr>
+
+                <tr>
+                    <td>B.Tech in Computer Science</td>
+                    <td>GLA University</td>
+                    <td>2025 - 2029</td>
+                    <td>B.Tech CSE AI & ML</td>
+                </tr>
+
+                <tr>
+                    <td>Class XII</td>
+                    <td>Delhi Public School (CBSE)</td>
+                    <td>2023</td>
+                    <td>First-Year Student</td>
+                </tr>
+
+                <tr>
+                    <td>Class X</td>
+                    <td>Delhi Public School (CBSE)</td>
+                    <td>2021</td>
+                    <td>GLA University</td>
+                </tr>
+            </table>
+
+            <h3>Technical Skills</h3>
+            <ul>
+                <li><b>Languages:</b> Python, Java, HTML, CSS</li>
+                <li><b>Web:</b> Artificial Intelligence, Machine Learning, Data Science and DSA</li>
+                <li><b>Tools:</b> Git, GitHub, VS Code and Kaggle</li>
+            </ul>
+
+            <h3>Projects & Research</h3>
+            <ul>
+                <li>
+                    <b>Stock Market Prediction using ML:</b>
+                    Built an ML project focused on analysing and predicting stock-market trends.
+                </li>
+                <li>
+                    <b>Financial Assistance using Machine Learning:</b>
+                    Working on a research paper exploring the use of machine learning in financial assistance.
+                </li>
+            </ul>
+
+            <h3>Achievements</h3>
+            <ul>
+                <li>Best Child Actor at the National School of Drama.</li>
+                <li>Represented at zonal level in Lawn Tennis.</li>
+                <li>Hackathon winner and team contributor in student technology competitions.</li>
+            </ul>
+
+            <h3>Interests</h3>
+            <ul>
+                <li>Artificial Intelligence & Machine Learning</li>
+                <li>Quantitative Finance and Stock Market Analysis</li>
+                <li>Acting, Theatre and Creative Activities</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Task 3 -->
+    <section class="page" id="page3">
+        <h2>Task 3 - Restaurant Menu</h2>
+
+        <div class="menu">
+            <h1>The Heritage Kitchen</h1>
+            <p><i>Authentic Flavors • Crafted with Care</i></p>
+
+            <h3>1. Appetizers & Starters</h3>
+            <ul>
+                <li>Paneer Tikka Shashlik <span class="price">₹240</span></li>
+                <li>Crispy Corn & Pepper Fry <span class="price">₹190</span></li>
+                <li>Stuffed Button Mushrooms <span class="price">₹220</span></li>
+                <li>Bruschetta al Pomodoro <span class="price">₹180</span></li>
+            </ul>
+
+            <h3>2. Main Course</h3>
+            <ol>
+                <li>Dum Handi Dal Makhani with Garlic Naan <span class="price">₹320</span></li>
+                <li>Shahi Paneer Lababdar <span class="price">₹350</span></li>
+                <li>Wild Mushroom Cream Risotto <span class="price">₹390</span></li>
+                <li>Wood-Fired Margherita Pizza <span class="price">₹310</span></li>
+            </ol>
+
+            <h3>3. Beverages & Desserts</h3>
+            <ul>
+                <li>
+                    Refreshing Beverages
+                    <ul>
+                        <li>Fresh Lime Mint Cooler <span class="price">₹95</span></li>
+                        <li>Classic Cold Brew Coffee <span class="price">₹140</span></li>
+                    </ul>
+                </li>
+
+                <li>
+                    Artisanal Desserts
+                    <ul>
+                        <li>Warm Walnut Brownie with Ice Cream <span class="price">₹175</span></li>
+                        <li>Royal Kesar Pista Kulfi <span class="price">₹120</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Task 4 -->
+    <section class="page" id="page4">
+        <h2>Task 4 - Registration Form</h2>
+
+        <div class="form">
+            <form onsubmit="alert('Registration completed!'); return false;">
+
+                <div class="field">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+
+                <div class="field">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter password" required>
+                </div>
+
+                <div class="field">
+                    <label>Select Course</label>
+                    <select required>
+                        <option value="">Choose Course</option>
+                        <option>B.Tech - Computer Science</option>
+                        <option>B.Tech - Information Technology</option>
+                        <option>BCA</option>
+                        <option>MCA</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Gender</label>
+
+                    <input type="radio" name="gender" id="male" required>
+                    <label class="choice" for="male">Male</label>
+
+                    <input type="radio" name="gender" id="female">
+                    <label class="choice" for="female">Female</label>
+
+                    <input type="radio" name="gender" id="other">
+                    <label class="choice" for="other">Other</label>
+                </div>
+
+                <div class="field">
+                    <label>Areas of Interest</label>
+
+                    <input type="checkbox" id="web">
+                    <label class="choice" for="web">Web Development</label>
+
+                    <input type="checkbox" id="ai">
+                    <label class="choice" for="ai">AI & Machine Learning</label>
+
+                    <input type="checkbox" id="cloud">
+                    <label class="choice" for="cloud">Cloud Computing</label>
+                </div>
+
+                <button class="submit" type="submit">Submit Registration</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Task 5 -->
+    <section class="page" id="page5">
+        <h2>Task 5 - Login Page</h2>
+
+        <div class="login">
+            <h2>Student Portal</h2>
+            <p>Please sign in to access your account</p>
+
+            <form onsubmit="alert('Signed in successfully!'); return false;">
+
+                <div class="field">
+                    <label>Username or Email</label>
+                    <input type="text" placeholder="Username / Email" required>
+                </div>
+
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" required>
+                </div>
+
+                <p style="text-align:left;">
+                    <input type="checkbox"> Remember this device
+                </p>
+
+                <button class="login-button" type="submit">Sign In</button>
+
+                <div class="links">
+                    <a href="#" onclick="alert('Password reset link sent!'); return false;">
+                        Forgot password?
+                    </a>
+                    |
+                    <a href="#" onclick="openPage(4); return false;">
+                        Create an account
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+
+<script>
+    function openPage(number) {
+        var pages = document.getElementsByClassName("page");
+        var buttons = document.querySelectorAll(".buttons button");
+
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].classList.remove("show");
+            buttons[i].classList.remove("selected");
+        }
+
+        document.getElementById("page" + number).classList.add("show");
+        buttons[number - 1].classList.add("selected");
+    }
+</script>
+
+</body>
+</html>
