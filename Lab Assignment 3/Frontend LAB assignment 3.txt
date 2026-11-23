@@ -1,0 +1,225 @@
+------------------------------------FRONTEND LAB ASSIGNMENT 3--------------------------------------------
+
+Q1)<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI Calculator</title>
+
+    </head>
+    <body>
+        <h1>BMI Calculator</h1>
+        <form>
+            <label for="height">Height (in cms): </label>
+            <input type="number" id="height" name="height">
+            <br><br>
+
+            <label for="weight">Weight (in kgs): </label>
+            <input type="number" id="weight" name="weight">
+            <br><br>
+
+            <button type="submit">Calculate BMI</button>
+            
+            <p id="result"></p>
+            
+        </form>
+
+        <script>
+            document.querySelector("form").addEventListener("submit", function(event){
+                event.preventDefault(); 
+
+                let height= Number(document.getElementById("height").value);
+            let weight= Number(document.getElementById("weight").value);
+
+            height= height/100;
+            let bmi= weight/(height*height);
+
+            if(bmi<18.5){
+                document.getElementById("result").innerHTML="Underweight";
+            }
+            else if(bmi<25){
+                document.getElementById("result").innerHTML="Normal";
+            }
+            else{
+                document.getElementById("result").innerHTMl="Overweight";
+            }
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+Q2) <!DOCTYPE html>
+<html>
+    <head>
+        <title>Theme Change</title>
+    </head>
+    <body>
+        <h1>Theme Change</h1>
+        <button id="light">Light</button>
+        <button id="dark">Dark</button>
+        <button id="blue">Blue</button>
+
+        <script>
+            document.getElementById("dark").addEventListener("click", function(){
+                document.body.style.backgroundColor="black";
+                document.body.style.color="white";
+            });
+
+            document.getElementById("light").addEventListener("click", function(){
+                document.body.style.backgroundColor="white";
+                document.body.style.color="black";
+            });
+
+            document.getElementById("blue").addEventListener("click", function(){
+                document.body.style.backgroundColor="blue";
+                document.body.style.color="white";
+            });
+            
+        </script>
+    </body>
+</html>
+
+
+Q3) <!DOCTYPE html>
+<html>
+    <head>
+        <title>Digital Clock</title>
+    </head>
+    <body>
+        <h1>Digital Clock</h1>
+        <h2 id="clock"></h2>
+
+        <script>
+            function updateClock(){
+                let now= new Date();
+
+            let hours= now.getHours();
+            let minutes= now.getMinutes();
+            let seconds= now.getSeconds();
+
+            if(hours<10){
+                hours= "0" + hours;
+            }
+            if(minutes<10){
+                minutes= "0" + minutes;
+            }
+            if(seconds<10){
+                seconds= "0" + seconds;
+            }
+
+            let time= hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById("clock").innerHTML=time;
+            }
+            updateClock();
+            setInterval(updateClock, 1000);
+        </script>
+    </body>
+</html>
+
+Q4)<!DOCTYPE html>
+<html>
+    <head>
+        <title>Signup Page</title>
+    </head>
+    <body>
+        <h1>Sign Up!</h1>
+        <form>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <br><br>
+
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <br><br>
+
+            <label for="setpassword">Set Password: </label>
+            <input type="password" id="setpassword" name="setpassword" placeholder="Enter your Password">
+            <br><br>
+
+            <label for="confirmpassword">Confirm Password: </label>
+            <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm your password">
+            <br><br>
+
+            <button type="submit">Sign Up!</button>
+        </form>
+            <script>
+                document.querySelector("form").addEventListener("submit", function(event){
+                    event.preventDefault();
+
+                    let valid=true;
+
+                    let name= document.getElementById("name").value;
+                    let email=document.getElementById("email").value;
+                    let password=document.getElementById("setpassword").value;
+                    let confirmPassword= document.getElementById("confirmpassword").value;
+
+                    if(name===""){
+                        alert("Please enter your name");
+                        valid=false;
+                    }
+                    if(!email.includes("@")){
+                        alert("Please enter a valid email");
+                        valid=false;
+                    }
+                    if(password===""){
+                        alert("Please enter a password");
+                        valid=false;
+                    }
+                    if(password!==confirmPassword){
+                        alert("Passwords do not match");
+                        valid=false;
+                    }
+                    if(valid){
+                        alert("Signup Successful!");
+                    }
+                });
+
+            </script>
+    </body>
+</html>
+
+Q5)<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo List</title>
+    </head>
+    <body>
+        <h1>Todo List</h1>
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button id="addBtn">Add</button>
+
+        <ul id="taskList"></ul>
+
+        <script>
+            document.getElementById("addBtn").addEventListener("click", function(){
+                let task=document.getElementById("taskInput").value;
+                
+                let li=document.createElement("li");
+                li.innerHTML=task;
+
+                let deleteBtn= document.createElement("button");
+                deleteBtn.innerHTML="Delete";
+                
+                deleteBtn.addEventListener("click", function(){
+                    li.remove();
+                });
+
+                li.appendChild(deleteBtn);
+
+                let completeBtn= document.createElement("button");
+                completeBtn.innerHTML= "Complete";
+
+                completeBtn.addEventListener("click", function(){
+                    li.style.textDecoration= "line-through";
+                });
+
+                li.appendChild(completeBtn);
+
+                document.getElementById("taskList").appendChild(li);
+            });
+        </script>
+    </body>
+</html>
